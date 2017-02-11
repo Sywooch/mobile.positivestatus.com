@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Оплата</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/style2.css">
+    <link rel="stylesheet" href="css/responsive2.css">
+    <link rel="stylesheet" href="css/responsive-nav.css">
+    <link rel="stylesheet" href="css/jslider.css" type="text/css">
+  <!-- end -->
+
+    <script type="text/javascript" src="js/jquery111.min.js"></script>
+
+    <!-- bin/jquery.slider.min.js -->
+    <script type="text/javascript" src="js/jshashtable-2.1_src.js"></script>
+    <script type="text/javascript" src="js/jquery.numberformatter-1.2.3.js"></script>
+    <script type="text/javascript" src="js/tmpl.js"></script>
+    <script type="text/javascript" src="js/jquery.dependClass-0.1.js"></script>
+    <script type="text/javascript" src="js/draggable-0.1.js"></script>
+    <script type="text/javascript" src="js/jquery.slider.js"></script>
+    <script type="text/javascript" src="js/jquery.dd.min.js"></script>
+    <script type="text/javascript" src="js/jquery.scrollTo.min.js"></script>
+    <script type="text/javascript" src="js/fotorama.js"></script>
+
+
+  <!-- end -->
+    <script src="js/responsive-nav.js"></script>
+     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+<script>
+    function initialize() {
+    //получаем наш div куда будем карту добавлять
+    var mapCanvas = document.getElementById('mpp');
+    // задаем параметры карты
+    var mapOptions = {
+        //Это центр куда спозиционируется наша карта при загрузке
+        center: new google.maps.LatLng(49.90, 8.7108),
+
+        //увеличение под которым будет карта, от 0 до 18
+        // 0 - минимальное увеличение - карта мира
+        // 18 - максимально детальный масштаб
+        zoom: 13,
+        //Тип карты - обычная дорожная карта
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    //Инициализируем карту
+    var map = new google.maps.Map(mapCanvas, mapOptions);
+
+    //Объявляем массив с нашими местами и маркерами
+    var markers = [],
+        myPlaces = [];
+    //Добавляем места в массив
+    myPlaces.push(new Place('Waldstraße ', 49.8831, 8.8168, 'MobileMaker'));
+
+      var image = 'images/baloon.png'; 
+
+    //Теперь добавим маркеры для каждого места
+    for (var i = 0, n = myPlaces.length; i < n; i++) {
+        var marker = new google.maps.Marker({
+            //расположение на карте
+            position: new google.maps.LatLng(myPlaces[i].latitude, myPlaces[i].longitude),
+            map: map,
+            icon: image,
+            //То что мы увидим при наведении мышкой на маркер
+            title: myPlaces[i].name
+        });
+        //Добавим попап, который будет появляться при клике на маркер
+        var infowindow = new google.maps.InfoWindow({
+            content: '<h1>' + myPlaces[i].name + '</h1><br/>' + myPlaces[i].description
+        });
+        //привязываем попап к маркеру на карте
+        makeInfoWindowEvent(map, infowindow, marker);
+        markers.push(marker);
+    }
+}
+function makeInfoWindowEvent(map, infowindow, marker) {
+    //Привязываем событие КЛИК к маркеру
+    google.maps.event.addListener(marker, 'click', function() {
+        infowindow.open(map, marker);
+    });
+}
+//Это класс для удобного манипулирования местами
+function Place(name, latitude, longitude, description){
+    this.name = name;  // название
+    this.latitude = latitude;  // широта
+    this.longitude = longitude;  // долгота
+    this.description = description;  // описание места
+}
+//Когда документ загружен полностью - запускаем инициализацию карты.
+google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>
+
+<script>
+    function initialize() {
+    //получаем наш div куда будем карту добавлять
+    var mapCanvas = document.getElementById('mobmap');
+    // задаем параметры карты
+    var mapOptions = {
+        //Это центр куда спозиционируется наша карта при загрузке
+        center: new google.maps.LatLng(49.8832, 8.8193),
+
+
+
+        //увеличение под которым будет карта, от 0 до 18
+        // 0 - минимальное увеличение - карта мира
+        // 18 - максимально детальный масштаб
+        zoom: 13,
+        //Тип карты - обычная дорожная карта
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    //Инициализируем карту
+    var map = new google.maps.Map(mapCanvas, mapOptions);
+    var image = 'images/baloon.png';
+    //Объявляем массив с нашими местами и маркерами
+    var markers = [],
+        myPlaces = [];
+    //Добавляем места в массив
+    myPlaces.push(new Place('Wald Str ', 49.882673, 8.8169141, 'Wald Str. 79C, <br>64846 Gross-Zimmern, <br>Deutschland'));
+
+
+
+    //Теперь добавим маркеры для каждого места
+    for (var i = 0, n = myPlaces.length; i < n; i++) {
+        var marker = new google.maps.Marker({
+            //расположение на карте
+            position: new google.maps.LatLng(myPlaces[i].latitude, myPlaces[i].longitude),
+            map: map,
+            icon: image,
+            //То что мы увидим при наведении мышкой на маркер
+            title: myPlaces[i].name
+        });
+        //Добавим попап, который будет появляться при клике на маркер
+        var infowindow = new google.maps.InfoWindow({
+            content: '<h1>' + myPlaces[i].name + '</h1><br/>' + myPlaces[i].description
+        });
+        //привязываем попап к маркеру на карте
+        makeInfoWindowEvent(map, infowindow, marker);
+        markers.push(marker);
+    }
+}
+function makeInfoWindowEvent(map, infowindow, marker) {
+    //Привязываем событие КЛИК к маркеру
+    google.maps.event.addListener(marker, 'click', function() {
+        infowindow.open(map, marker);
+    });
+}
+//Это класс для удобного манипулирования местами
+function Place(name, latitude, longitude, description){
+    this.name = name;  // название
+    this.latitude = latitude;  // широта
+    this.longitude = longitude;  // долгота
+    this.description = description;  // описание места
+}
+//Когда документ загружен полностью - запускаем инициализацию карты.
+google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>
+
+
+
+
+  </head>
+  <body class="profi">
+    <div class="wrap">
+    <div class="header">
+        <div class="container">
+               <div class="top-header">
+                        <div class="logo">
+                            <a href="/"></a>
+                        </div>
+
+                         <div class="reg-block">
+                            <ul id="in_login">
+                                <li class="zakl"><a href="#">Закладки (25)</a></li>
+                                <li class="spis"><a href="#">Список (23)</a></li>
+                                <li class="profil"><a href="#">Профиль</a></li>
+                                <li class="exit"><a href="#">Выход</a></li>
+                            </ul>
+                        </div>
+
+
+                </div>
+                <div id="nav">
+                  <ul>
+                        <li class="home dv act"><a href="#"><i></i>Главная</a></li>
+                        <li class="avtor dv hides"><a href="#"><i></i>Авторизация</a></li>
+                        <li class="legko"><a href="#"><i></i>Легковые</a></li>
+                        <li class="bus"><a href="#"><i></i>Автобусы</a></li>
+                        <li class="gruz"><a href="#"><i></i>Грузовые</a></li>
+                        <li class="spec"><a href="#"><i></i>Спецтехника</a></li>
+                        <li class="moto"><a href="#"><i></i>Мотоциклы</a></li>
+                        <li class="lodka"><a href="#"><i></i>Лодки</a></li>
+                        <li class="sogl dv hides"><a href="#"><i></i>Cоглашение</a></li>
+                        <li class="kont dv hides"><a href="#"><i></i>Контакты</a></li>
+                      </ul>
+                </div>
+            </div>
+    </div>
+    <div class="main">
+
+        <div class="container payer">
+           <div class="adapt">
+             <h2 class="paym">Оплата</h2>
+             <h4 class="idds">D#<span> 3190345</span></h4>
+           </div>
+           <div class="cupon">
+            <div class="inf">
+                <p class="cen"><b>€</b>50</p>
+                <p>Аккаунт БИЗНЕС <i>за</i> 1 месяц <br> 10.09.2015 <i>по </i>10.10.2015</p>
+            </div>
+            <a class="cup" href="#">
+                 Активировать<br>купон
+            </a>
+        </div>
+
+            <aside class="lefta">
+                <form action="" class="forma black">
+                    <fieldset>
+                        <label class="firnam">Firmenname
+                            <input type="text"  id="fname" name="fnames" placeholder="MobileMakler" />
+                        </label>
+                         <label class="fionam">Kontoinhaber
+                            <input type="text"  id="fioname" name="fioames" placeholder="Andrey Brujovich" />
+                        </label>
+
+                        <div class="two">
+                          <label class="noimg">Stoernumer
+                            <input type="text"  id="nmb" name="nvb1" placeholder="08800801193i" />
+                          </label>
+                            <label class="noimg">USt-idNr.
+                                <input type="text"  id="dnabm2" name="dmbs2" placeholder="DE267996159" />
+                            </label>
+                        </div>
+                        <label class="nbanke">Name der Bank
+                            <input type="text"  id="bank" name="bnk" placeholder="Sparkasse Diedurg" />
+                        </label>
+
+                        <label class="iban">IBAN
+                            <input type="text"  id="iban" name="ibnn" placeholder="DE75508526510138106000" />
+                        </label>
+                        <div class="two two2">
+                          <label class="noimg">BIC
+                            <input type="text"  id="bic" name="bic1" placeholder="044525555" />
+                          </label>
+                        </div>
+
+                    </fieldset>
+                </form>
+            </aside>
+            <aside class="righta">
+                <div class="cheker">
+                    <p class="top">Rechnung #321</p>
+                    <h2 class="paym">Аккаунт БИЗНЕС
+                        <div class="dats">
+                          <i>с</i> 22/09/2015<br>
+                          <i>по</i> 22/10/2015
+                        </div>
+                    </h2>
+                    <div class="tex">
+                        <p>Количество предложений не ограничено</p>
+                        <p>Прямые контакты с покупателями</p>
+                        <p>Синхронизация предложений с других сайтов</p>
+                    </div>
+                    <div class="itog">
+                        ИТОГО:<span><i>€</i> <b>50</b></span>
+                    </div>
+                 </div>  <!--class="cheker">  -->
+            </aside>
+
+            <div class="sposob">
+                <p class="vibor">Выберете способ оплаты:</p>
+                   <div class="fl_line">
+                    <a class="bank" href="#">
+                       <img src="images/bank.png"  alt="">
+                        Банковским переводом</a>
+                    <a class="karta" href="#">
+                       <img src="images/kart.png"  alt="">
+                    Банковской картой</a>
+                    <a class="payp" href="#">
+                        <img src="images/payp.png"  alt="">
+                        Системой<br> PayPal</a>
+
+                   </div>
+            </div>
+
+            </div> <!-- class="container payment">-->
+        </div>  <!--class="main"> -->
+
+    <div class="footer">
+        <div class="container">
+                <p>© 2014  <a href=""> Соглашение</a></p>
+                <div class="social">
+                    <ul>
+                        <li class="fb"><a href=""></a></li>
+                        <li class="tw"><a href=""></a></li>
+                        <li class="goo"><a href=""></a></li>
+                    </ul>
+                </div>
+                <p class="right"><a href="#mpp" rel="m_PageScroll2id">Контакты</a>, <a href="#"> impressum</a></p>
+        </div>
+
+    </div>
+   <div class="footer2" id="ff22">
+            <div class="infa">
+                <div class="container">
+                    <div class="col1 co">
+                        <h3>Impressum</h3>
+                         <P>
+                            Umsatzsteuer-Identifikationsnummer <br>nach § 27 a Umsatzsteuergesetz: <br>DE267996159<br>Inhaber Andrej Brjuchovic
+                         </P>
+                        <P>
+                         Copyright © 2011 - 2015
+                        </P>
+                    </div>
+                    <div class="col2 co">
+                        <h3>Контакты</h3>
+                         <div class="icons">
+                            <p class="tel"> +49 (0) 6071392273 </p>
+                            <p class="skype">mobilemakler.com</p>
+                            <p class="mail">mobilemakler@gmail.com</p>
+                        </div>
+                        <P>Mo. - Fr.:  08:30 - 18:00 Uhr </P>
+                    </div>
+                    <div class="col3 co">
+                        <div class="social1">
+                            <ul>
+                                <li class="fb1"><a href=""></a></li>
+                                <li class="tw1"><a href=""></a></li>
+                                <li class="goo1"><a href=""></a></li>
+                            </ul>
+                        </div>
+
+                       <P>
+                        Waldstraße 79C<br>
+64846 Groß-Zimmern <br>
+Deutschland
+                       </P>
+
+                       <P><a href="#">Пользовательское соглашение</a></P>
+
+
+                    </div>
+
+                </div> <!--class="container -->
+            </div> <!--class="infa">-->
+
+            <div class="mappp" >
+                <div class="contar" id="mpp"></div>
+            </div>
+        </div> <!-- class="footer2"     -->
+        </div>  <!--class="wrap">-->
+
+
+ 
+    <script>
+      var navigation = responsiveNav("#nav", {
+        animate: true,        // Boolean: Use CSS3 transitions, true or false
+        transition: 400,      // Integer: Speed of the transition, in milliseconds
+        label: "Menu",        // String: Label for the navigation toggle
+        insert: "after",      // String: Insert the toggle before or after the navigation
+        customToggle: "",     // Selector: Specify the ID of a custom toggle
+        openPos: "relative",  // String: Position of the opened nav, relative or static
+        jsClass: "js",        // String: 'JS enabled' class which is added to <html> el
+        init: function(){},   // Function: Init callback
+        open: function(){},   // Function: Open callback
+        close: function(){}   // Function: Close callback
+      });
+    </script>
+
+<script type="text/javascript" src="js/adap_m.js"></script>
+<script type="text/javascript" src="js/start.js"></script>
+
+<script>
+$(document).ready(function(e) {
+    $("#countries").msDropdown(); //image can have css class; Please check source code.
+
+
+});
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Профиль</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <link rel="stylesheet" href="css/style2.css">
+    <link rel="stylesheet" href="css/responsive2.css">
+    <link rel="stylesheet" href="css/responsive-nav.css">
+    <link rel="stylesheet" href="css/jslider.css" type="text/css">
+
+    <link rel="stylesheet" type="text/css" href="css/jquery.datetimepicker.css"/>
+  <!-- end -->
+
+    <script type="text/javascript" src="js/jquery111.min.js"></script>
+
+    <!-- bin/jquery.slider.min.js -->
+    <script type="text/javascript" src="js/jshashtable-2.1_src.js"></script>
+    <script type="text/javascript" src="js/jquery.numberformatter-1.2.3.js"></script>
+    <script type="text/javascript" src="js/tmpl.js"></script>
+    <script type="text/javascript" src="js/jquery.dependClass-0.1.js"></script>
+    <script type="text/javascript" src="js/draggable-0.1.js"></script>
+    <script type="text/javascript" src="js/jquery.slider.js"></script>
+    <script type="text/javascript" src="js/jquery.dd.min.js"></script>
+    <script type="text/javascript" src="js/jquery.scrollTo.min.js"></script>
+    <script type="text/javascript" src="js/fotorama.js"></script>
+
+
+  <!-- end -->
+    <script src="js/responsive-nav.js"></script>
+
+
+  </head>
+  <body class="profi" >
+    <div class="wrap">
+    <div class="header">
+        <div class="container">
+               <div class="top-header">
+                        <div class="logo">
+                            <a href="/"></a>
+                        </div>
+
+                         <div class="reg-block">
+                            <ul id="in_login">
+                                <li class="zakl"><a href="#">Закладки (25)</a></li>
+                                <li class="spis"><a href="#">Список (23)</a></li>
+                                <li class="profil"><a href="#">Профиль</a></li>
+                                <li class="exit"><a href="#">Выход</a></li>
+                            </ul>
+                        </div>
+                </div>
+                <div id="nav">
+                  <ul>
+                        <li class="home dv act"><a href="#"><i></i>Главная</a></li>
+                        <li class="avtor dv hides"><a href="#"><i></i>Авторизация</a></li>
+                        <li class="legko"><a href="#"><i></i>Легковые</a></li>
+                        <li class="bus"><a href="#"><i></i>Автобусы</a></li>
+                        <li class="gruz"><a href="#"><i></i>Грузовые</a></li>
+                        <li class="spec"><a href="#"><i></i>Спецтехника</a></li>
+                        <li class="moto"><a href="#"><i></i>Мотоциклы</a></li>
+                        <li class="lodka"><a href="#"><i></i>Лодки</a></li>
+                        <li class="sogl dv hides"><a href="#"><i></i>Cоглашение</a></li>
+                        <li class="kont dv hides"><a href="#"><i></i>Контакты</a></li>
+                      </ul>
+                </div>
+            </div>
+    </div>
+    <div class="main">
+
+        <div class="container">
+               <form action="#" class="forma">
+           <aside class="left_s">
+               <h2 class="profil_h2">Профиль&nbsp;&nbsp;<span>ID</span>&nbsp;5323456  <u class="unhide">до 21.12.2015 <a href="#" class="oplat">Оплата</a> </u></h2>
+
+
+                      <div class="obod">
+                       <!--полоски и скрытие границы-->
+                       <div class="polos_t"></div>
+                       <div class="polos_b"></div>
+                       <div class="hide_bo"></div>
+                        <p class="title">поля обязательные для заполнения</p>
+                        <label class="eml">Email
+                            <input id="imд" name="emails" value="" >
+                        </label>
+                        <label class="par1">Пароль
+                            <input id="pas1" name="parol" value="" >
+                        </label>
+                        <label class="par2">Повторить пароль
+                            <input id="pas2" name="parol2" value="" >
+                        </label>
+                      </div>
+
+
+
+               <div class="ov heigh">
+                  <div class="imt_kont">
+                       <label class="plus la_lang">Имя контакта
+                            <b class="nom"></b>
+                            <i class="wrp">
+                                <span>
+                                    <a href="#" class="add drop langu">Язык</a>
+                                </span>
+                                <b>
+                                    <u class="yazik">
+                                       <b style="display:none">язык:</b>
+                                    </u>
+                                    <ul class="downbox" id="lang_spis">
+                                        <li>
+                                            <div class="checkbox">
+                                                <input type="checkbox" data-lang="Eng" name="t22" id="Engos">
+                                                <label for="Engos"> English
+                                                    <span class="pseudo-checkbox white"></span>
+                                                </label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="checkbox">
+                                                <input type="checkbox" data-lang="Deu" name="Deu" id="Deull">
+                                                    <label for="Deull">Deutsche
+                                                        <span class="pseudo-checkbox white"></span>
+                                                    </label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="checkbox">
+                                                <input type="checkbox"  data-lang="Fra" name="t24" id="Frann">
+                                                <label for="Frann">Français
+                                                    <span class="pseudo-checkbox white"></span>
+                                                </label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="checkbox">
+                                                <input type="checkbox" data-lang="Esp" name="t25" id="Espa">
+                                                <label for="Espa">Español
+                                                    <span class="pseudo-checkbox white"></span>
+                                                </label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="checkbox">
+                                                <input type="checkbox" data-lang="Rus" name="t26" id="Rusa">
+                                                <label for="Rusa">Русский
+                                                    <span class="pseudo-checkbox white"></span>
+                                                </label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </b>
+                             </i>
+                            <input id="firm" class="orig" name="firma" value="" >
+                       </label>
+                         <a href="#" class="logo_prof">
+
+                         </a>
+                         <fieldset>
+                            <label class="phons">Телефон
+                                <input id="phon" name="ph" value="" class="orig" >
+                            </label>
+                            <div class="mobil">Мобильный
+                            <span class="right">
+                                 <div class="checkbox">
+
+                                             <input type="checkbox" id="nds" name="nds" />
+                                                <label for="nds">
+                                                    <span class="pseudo-checkbox white"></span>
+
+                                                </label>
+                                         </div>
+
+                                <i class="viber"></i>
+                                 <div class="checkbox ch2">
+
+                                             <input type="checkbox" id="nds2" name="nds2" />
+                                                <label for="nds2">
+                                                    <span class="pseudo-checkbox white"></span>
+
+                                                </label>
+                                         </div>
+
+                                <i class="what"></i>
+                            </span>
+                                <input id="mobi" name="moble" value="" class="orig" >
+                            </div>
+                         </fieldset>
+                         <div class="plus">
+                            <span><a href="#" class="add kont_clon">+ Контакт</a></span>
+                            <span  class="wrp">
+                                <a href="#" class="add drop langu">+ Cвязь
+                                     <ul class="downbox addpole">
+                                        <li id="teleph" >
+                                                Телефон
+                                        </li>
+                                        <li id="mobil">
+                                            Мобильный
+                                        </li >
+                                        <li id="sky">
+                                            Skype
+                                        </li>
+                                        <li id="BlackBerry">
+                                          BlackBerry pin
+                                        </li>
+                                        <li id="emailm">
+                                            Email
+                                        </li>
+                                    </ul>
+                                </a>
+                            </span>
+                         </div>
+                       </div>  <!--class="imt_kont"> -->
+
+
+
+
+                       </div>  <!-- class="ov heigh"> -->
+
+
+                        <label class="sites">Вебсайт
+
+                                <input id="web" name="wb" class="http" value="" >
+                            </label>
+                            <div class="plus one">
+                            <span><a href="#" class="add" id="ssil">+ Cсылка
+                                <ul class="downbox addpole">
+                                        <li id="faceb" >
+                                             Facebook
+                                        </li>
+                                        <li id="twit2">
+                                            Twitter
+                                        </li >
+                                        <li id="weba2">
+                                            Вебсайт
+                                        </li>
+
+                                    </ul>
+                            </a></span>
+                            (Facebook, Twitter и т.д.)
+                         </div>
+
+           </aside>
+
+            <aside class="content mud">
+                 <div class="rgh_dat">
+                    <h3><span>ДО&nbsp;</span>21.12.2015</h3>
+                    <a href="#" class="oplat">Оплата</a>
+
+                 </div>
+
+                 <div class="where">
+                    <label class="index">Индекс
+                        <span class="des">
+                            <span id="min_ind">de</span>
+
+                         <ul class="downbox addpole">
+
+                                        <li id="germ">
+                                            <img src="images/blank.gif" class="flag de fnone">
+                                            <span class="ddlabel">Германия</span>
+                                        </li>
+                                        <li id="belg">
+                                            <img src="images/blank.gif" class="flag be fnone">
+                                            <span class="ddlabel">Бельгия</span>
+                                        </li>
+                                        <li id="fran">
+                                            <img src="images/blank.gif" class="flag fr fnone">
+                                            <span class="ddlabel">Франция</span>
+                                        </li>
+                                        <li id="nider">
+                                            <img src="images/blank.gif" class="flag nl fnone">
+                                            <span class="ddlabel">Нидерланды</span>
+                                        </li>
+                                        <li id="itals">
+                                            <img src="images/blank.gif" class="flag it fnone">
+                                            <span class="ddlabel">Италия</span>
+                                        </li>
+                                        <li id="rossi">
+                                            <img src="images/blank.gif" class="flag ru fnone">
+                                            <span class="ddlabel">Россия</span>
+                                        </li>
+                                    </ul>
+
+
+                        </span>
+                            <input class="indx_inp" id="firm" name="ind" value="" >
+                    </label>
+                    <label class="townn">Населеный пункт
+                            <input id="згт" name="town" value="" >
+                    </label>
+                    <label class="addr">Адрес (улица, район, дом)
+                            <input id="adres" name="adr" value="" >
+                    </label>
+                 </div>
+
+
+                 <div id="map_pro" class="mpof">
+                 </div>
+                 <div id="map_pro2" class="mpof hdr">
+                 </div>
+
+
+                 <div class="times plus">
+                    <label>Доступное время</label>
+                    <span><input class="add drop" type="text" id="datetimepicker1"></span> <i class="tire">-</i>
+                    <span><input class="add drop" type="text" id="datetimepicker2"></span>
+                 </div>
+
+                 <div class="week">
+                    <div class="itms">
+                        <p>Пон</p>
+                           <div class="checkbox">
+                            <input type="checkbox" id="tm1" name="t1" />
+                            <label for="tm1">
+                                <span class="pseudo-checkbox white"></span>
+                            </label>
+                           </div>
+                    </div>
+                     <div class="itms">
+                        <p>Вт</p>
+                           <div class="checkbox">
+                            <input type="checkbox" id="tm2" name="t2" />
+                            <label for="tm2">
+                                <span class="pseudo-checkbox white"></span>
+                            </label>
+                           </div>
+                    </div>
+                     <div class="itms">
+                        <p>Срд</p>
+                           <div class="checkbox">
+                            <input type="checkbox" id="tm3" name="t3" />
+                            <label for="tm3">
+                                <span class="pseudo-checkbox white"></span>
+                            </label>
+                           </div>
+                    </div>
+                     <div class="itms">
+                        <p>Чтв</p>
+                           <div class="checkbox">
+                            <input type="checkbox" id="tm4" name="t4" />
+                            <label for="tm4">
+                                <span class="pseudo-checkbox white"></span>
+                            </label>
+                           </div>
+                    </div>
+                     <div class="itms">
+                        <p>Птн</p>
+                           <div class="checkbox">
+                            <input type="checkbox" id="tm5" name="t5" />
+                            <label for="tm5">
+                                <span class="pseudo-checkbox white"></span>
+                            </label>
+                           </div>
+                    </div>
+                    <div class="itms">
+                        <p>Суб</p>
+                           <div class="checkbox">
+                            <input type="checkbox" id="tm6" name="t6" />
+                            <label for="tm6">
+                                <span class="pseudo-checkbox white"></span>
+                            </label>
+                           </div>
+                    </div>
+                    <div class="itms last">
+                        <p>Вск</p>
+                           <div class="checkbox">
+                            <input type="checkbox" id="tm7" name="t7" />
+                            <label for="tm7">
+                                <span class="pseudo-checkbox white"></span>
+                            </label>
+                           </div>
+                    </div>
+
+                 </div> <!--class="week" -->
+
+                 <button type="submit" class="sohr">Cохранить</button>
+
+
+                </aside>  <!--class="content">-->
+
+
+
+                <div class="clear"></div>
+                </form>
+            </div> <!-- class="container">-->
+        </div>  <!--class="main"> -->
+
+    <div class="footer">
+        <div class="container">
+                <p>© 2014  <a href=""> Соглашение</a></p>
+                <div class="social">
+                    <ul>
+                        <li class="fb"><a href=""></a></li>
+                        <li class="tw"><a href=""></a></li>
+                        <li class="goo"><a href=""></a></li>
+                    </ul>
+                </div>
+                <p class="right"><a href="#mpp" rel="m_PageScroll2id">Контакты</a>, <a href="#"> impressum</a></p>
+        </div>
+
+    </div>
+   <div class="footer2" id="ff22">
+            <div class="infa">
+                <div class="container">
+                    <div class="col1 co">
+                        <h3>Impressum</h3>
+                         <P>
+                            Umsatzsteuer-Identifikationsnummer <br>nach § 27 a Umsatzsteuergesetz: <br>DE267996159<br>Inhaber Andrej Brjuchovic
+                         </P>
+                        <P>
+                         Copyright © 2011 - 2015
+                        </P>
+                    </div>
+                    <div class="col2 co">
+                        <h3>Контакты</h3>
+                         <div class="icons">
+                            <p class="tel"> +49 (0) 6071392273 </p>
+                            <p class="skype">mobilemakler.com</p>
+                            <p class="mail">mobilemakler@gmail.com</p>
+                        </div>
+                        <P>Mo. - Fr.:  08:30 - 18:00 Uhr </P>
+                    </div>
+                    <div class="col3 co">
+                        <div class="social1">
+                            <ul>
+                                <li class="fb1"><a href=""></a></li>
+                                <li class="tw1"><a href=""></a></li>
+                                <li class="goo1"><a href=""></a></li>
+                            </ul>
+                        </div>
+
+                       <P>
+                        Waldstraße 79C<br>
+64846 Groß-Zimmern <br>
+Deutschland
+                       </P>
+
+                       <P><a href="#">Пользовательское соглашение</a></P>
+
+
+                    </div>
+
+                </div> <!--class="container -->
+            </div> <!--class="infa">-->
+
+            <div class="mappp" >
+                <div class="contar" id="mpp"></div>
+            </div>
+        </div> <!-- class="footer2"     -->
+        </div>  <!--class="wrap">-->
+            <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+<script>
+    function initialize() {
+    //получаем наш div куда будем карту добавлять
+    var mapCanvas = document.getElementById('map_pro');
+    var mapCanvas2 = document.getElementById('map_pro2');
+    // задаем параметры карты
+    var mapOptions = {
+        //Это центр куда спозиционируется наша карта при загрузке
+        center: new google.maps.LatLng(49.89, 8.8208),
+
+        //увеличение под которым будет карта, от 0 до 18
+        // 0 - минимальное увеличение - карта мира
+        // 18 - максимально детальный масштаб
+        zoom: 13,
+        //Тип карты - обычная дорожная карта
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    //Инициализируем карту
+    var map = new google.maps.Map(mapCanvas, mapOptions);
+    var map2 = new google.maps.Map(mapCanvas2, mapOptions);
+
+    //Объявляем массив с нашими местами и маркерами
+    var markers = [],
+        myPlaces = [];
+    //Добавляем места в массив
+    myPlaces.push(new Place('Waldstraße ', 49.8831, 8.8168, 'MobileMaker'));
+
+      var image = 'images/baloon.png';
+
+    //Теперь добавим маркеры для каждого места
+    for (var i = 0, n = myPlaces.length; i < n; i++) {
+        var marker = new google.maps.Marker({
+            //расположение на карте
+            position: new google.maps.LatLng(myPlaces[i].latitude, myPlaces[i].longitude),
+            map: map,
+
+            icon: image,
+            //То что мы увидим при наведении мышкой на маркер
+            title: myPlaces[i].name
+        });
+        var marker2 = new google.maps.Marker({
+            //расположение на карте
+            position: new google.maps.LatLng(myPlaces[i].latitude, myPlaces[i].longitude),
+
+            map: map2,
+            icon: image,
+            //То что мы увидим при наведении мышкой на маркер
+            title: myPlaces[i].name
+        });
+        //Добавим попап, который будет появляться при клике на маркер
+        var infowindow = new google.maps.InfoWindow({
+            content: '<h1>' + myPlaces[i].name + '</h1><br/>' + myPlaces[i].description
+        });
+        var infowindow2 = new google.maps.InfoWindow({
+            content: '<h1>' + myPlaces[i].name + '</h1><br/>' + myPlaces[i].description
+        });
+        //привязываем попап к маркеру на карте
+        makeInfoWindowEvent(map, infowindow, marker);
+        makeInfoWindowEvent2(map2, infowindow2, marker2);
+        markers.push(marker);
+        markers.push(marker2);
+    }
+}
+function makeInfoWindowEvent(map, infowindow, marker) {
+    //Привязываем событие КЛИК к маркеру
+    google.maps.event.addListener(marker, 'click', function() {
+        infowindow.open(map, marker);
+    });
+}
+function makeInfoWindowEvent2(map2, infowindow2, marker2) {
+    //Привязываем событие КЛИК к маркеру
+    google.maps.event.addListener(marker2, 'click', function() {
+        infowindow.open(map2, marker2);
+    });
+}
+//Это класс для удобного манипулирования местами
+function Place(name, latitude, longitude, description){
+    this.name = name;  // название
+    this.latitude = latitude;  // широта
+    this.longitude = longitude;  // долгота
+    this.description = description;  // описание места
+}
+//Когда документ загружен полностью - запускаем инициализацию карты.
+google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>
+<script>
+    function initialize() {
+    //получаем наш div куда будем карту добавлять
+    var mapCanvas = document.getElementById('mpp');
+    // задаем параметры карты
+    var mapOptions = {
+        //Это центр куда спозиционируется наша карта при загрузке
+        center: new google.maps.LatLng(49.90, 8.7108),
+
+        //увеличение под которым будет карта, от 0 до 18
+        // 0 - минимальное увеличение - карта мира
+        // 18 - максимально детальный масштаб
+        zoom: 13,
+        //Тип карты - обычная дорожная карта
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    //Инициализируем карту
+    var map = new google.maps.Map(mapCanvas, mapOptions);
+
+    //Объявляем массив с нашими местами и маркерами
+    var markers = [],
+        myPlaces = [];
+    //Добавляем места в массив
+    myPlaces.push(new Place('Waldstraße ', 49.8831, 8.8168, 'MobileMaker'));
+
+
+
+    //Теперь добавим маркеры для каждого места
+    for (var i = 0, n = myPlaces.length; i < n; i++) {
+        var marker = new google.maps.Marker({
+            //расположение на карте
+            position: new google.maps.LatLng(myPlaces[i].latitude, myPlaces[i].longitude),
+            map: map,
+            //То что мы увидим при наведении мышкой на маркер
+            title: myPlaces[i].name
+        });
+        //Добавим попап, который будет появляться при клике на маркер
+        var infowindow = new google.maps.InfoWindow({
+            content: '<h1>' + myPlaces[i].name + '</h1><br/>' + myPlaces[i].description
+        });
+        //привязываем попап к маркеру на карте
+        makeInfoWindowEvent(map, infowindow, marker);
+        markers.push(marker);
+    }
+}
+function makeInfoWindowEvent(map, infowindow, marker) {
+    //Привязываем событие КЛИК к маркеру
+    google.maps.event.addListener(marker, 'click', function() {
+        infowindow.open(map, marker);
+    });
+}
+//Это класс для удобного манипулирования местами
+function Place(name, latitude, longitude, description){
+    this.name = name;  // название
+    this.latitude = latitude;  // широта
+    this.longitude = longitude;  // долгота
+    this.description = description;  // описание места
+}
+//Когда документ загружен полностью - запускаем инициализацию карты.
+google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>
+    <script>
+      var navigation = responsiveNav("#nav", {
+        animate: true,        // Boolean: Use CSS3 transitions, true or false
+        transition: 400,      // Integer: Speed of the transition, in milliseconds
+        label: "Menu",        // String: Label for the navigation toggle
+        insert: "after",      // String: Insert the toggle before or after the navigation
+        customToggle: "",     // Selector: Specify the ID of a custom toggle
+        openPos: "relative",  // String: Position of the opened nav, relative or static
+        jsClass: "js",        // String: 'JS enabled' class which is added to <html> el
+        init: function(){},   // Function: Init callback
+        open: function(){},   // Function: Open callback
+        close: function(){}   // Function: Close callback
+      });
+    </script>
+
+
+<script type="text/javascript" src="js/adap_m.js"></script>
+<script type="text/javascript" src="js/start.js"></script>
+
+<script>
+$(document).ready(function(e) {
+    $("#countries").msDropdown({
+      rowHeight: 22,
+    }); //image can have css class; Please check source code.
+
+
+});
+</script>
+      <!--скрипт выбора времени -->
+<script type="text/javascript" src="js/jquery.datetimepicker.full.min.js"></script>
+<script>/*
+window.onerror = function(errorMsg) {
+	$('#console').html($('#console').html()+'<br>'+errorMsg)
+}*/
+$.datetimepicker.setLocale('en');
+$('#datetimepicker1').datetimepicker({
+	datepicker:false,
+  format:'H:i',
+  value:'08:00'
+});
+$('#datetimepicker2').datetimepicker({
+  datepicker:false,
+  format:'H:i',
+  value:'19:00'
+});
+
+</script>
+  </body>
+</html>

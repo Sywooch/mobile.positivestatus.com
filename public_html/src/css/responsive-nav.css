@@ -1,0 +1,144 @@
+/*! responsive-nav.js v1.0.14 by @viljamis */
+
+#nav ul , #nav ul {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: block;
+  overflow: hidden;
+
+  list-style: none;
+}
+
+#nav li {
+  display: block;
+    margin-right:68px;
+}
+#nav li:nth-last-child(2){margin:0;}
+#nav li:last-child{margin:0;float: right;}
+#nav li a:hover,#nav li.active a {color:#fff;}
+
+
+
+.js #nav {
+  clip: rect(0 0 0 0);
+  max-height: 0;
+
+  background-color: #42474A;
+  position: absolute;
+  overflow: hidden;
+  display: block;
+
+  zoom: 1;
+}
+
+
+#nav,
+#nav ul  {
+
+    list-style: outside none none;
+    width: 100%;
+
+
+}
+
+
+#nav ul:after, #nav:after {
+  content: "";
+  width: 100%;
+  clear: both;
+}
+
+#nav li {
+  float: left;
+}
+
+#nav li.moto {
+    margin-right: 46px;
+}
+
+#nav li a {
+  color: #bebebd;
+  text-decoration: none;
+font-size: 18px;
+}
+
+@media screen and (min-width: 940px;) {
+    #nav li {
+  float: left;
+}
+#nav ul  {
+  left: -2%;
+
+
+}
+  #nav a {
+    margin: 0;
+    float: left;
+    text-align: center;
+    border-bottom: 0;
+  }
+}
+
+#nav ul ul a {
+  background: #ca3716;
+  padding-left: 2em;
+}
+
+@media screen and (min-width: 940px;) {
+  #nav ul ul a {
+    display: none;
+  }
+}
+
+#nav-toggle, .nav-toggle {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 30px;
+  height: 31px;
+  position: absolute;
+    top: 0px;
+    z-index: 651;
+    right: 10px;
+  text-indent: -9999px;
+  overflow: hidden;
+  background:  url(../images/menu.png) no-repeat 0 0 ;
+}
+
+
+
+
+
+
+#nav.opened {
+  max-height: 9999px;
+}
+
+
+@media screen and (max-width: 940px) {
+    #nav li {
+width: 100%;
+  display: block;
+}
+    #nav li a{
+    display: block;
+        width: 100%;
+        padding: 10px 0;
+        border-bottom: 1px solid #bebebd;
+        text-align: center;
+    }
+}
+@media screen and (min-width: 940px) {
+ .js #nav {
+    position: relative;
+  }
+  .js #nav.closed {
+    max-height: none;
+  }
+  #nav-toggle {
+    display: none;
+  }
+}

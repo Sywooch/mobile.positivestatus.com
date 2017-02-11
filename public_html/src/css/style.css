@@ -1,0 +1,18 @@
+body {
+	margin: 0px;
+	padding: 0px;
+	background-color: #000000;
+	color: #ffffff;
+	font-size: 0.8em;
+	font-family: arial, verdana, helvetica;
+	line-height: 1.4em;
+}
+
+.content {
+	width: 700px;
+	margin: 0px auto;
+}
+
+a {
+	color: #E5C369;
+}

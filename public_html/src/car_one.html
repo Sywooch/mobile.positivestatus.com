@@ -1,0 +1,1480 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Легковые</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <link rel="stylesheet" href="css/style2.css">
+    <link rel="stylesheet" href="css/responsive2.css">
+    <link rel="stylesheet" href="css/responsive-nav.css">
+    <link rel="stylesheet" href="css/jslider.css" type="text/css">
+  <!-- end -->
+
+    <script type="text/javascript" src="js/jquery111.min.js"></script>
+
+    <!-- bin/jquery.slider.min.js -->
+    <script type="text/javascript" src="js/jshashtable-2.1_src.js"></script>
+    <script type="text/javascript" src="js/jquery.numberformatter-1.2.3.js"></script>
+    <script type="text/javascript" src="js/tmpl.js"></script>
+    <script type="text/javascript" src="js/jquery.dependClass-0.1.js"></script>
+    <script type="text/javascript" src="js/draggable-0.1.js"></script>
+    <script type="text/javascript" src="js/jquery.slider.js"></script>
+    <script type="text/javascript" src="js/jquery.dd.min.js"></script>
+    <script type="text/javascript" src="js/jquery.scrollTo.min.js"></script>
+    <script type="text/javascript" src="js/fotorama.js"></script>
+
+
+  <!-- end -->
+    <script src="js/responsive-nav.js"></script>
+     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+<script>
+    function initialize() {
+    //получаем наш div куда будем карту добавлять
+    var mapCanvas = document.getElementById('mpp');
+    // задаем параметры карты
+    var mapOptions = {
+        //Это центр куда спозиционируется наша карта при загрузке
+        center: new google.maps.LatLng(49.90, 8.7108),
+
+        //увеличение под которым будет карта, от 0 до 18
+        // 0 - минимальное увеличение - карта мира
+        // 18 - максимально детальный масштаб
+        zoom: 13,
+        //Тип карты - обычная дорожная карта
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    //Инициализируем карту
+    var map = new google.maps.Map(mapCanvas, mapOptions);
+
+    //Объявляем массив с нашими местами и маркерами
+    var markers = [],
+        myPlaces = [];
+    //Добавляем места в массив
+    myPlaces.push(new Place('Waldstraße ', 49.8831, 8.8168, 'MobileMaker'));
+
+      var image = 'images/baloon.png'; 
+
+    //Теперь добавим маркеры для каждого места
+    for (var i = 0, n = myPlaces.length; i < n; i++) {
+        var marker = new google.maps.Marker({
+            //расположение на карте
+            position: new google.maps.LatLng(myPlaces[i].latitude, myPlaces[i].longitude),
+            map: map,
+            icon: image,
+            //То что мы увидим при наведении мышкой на маркер
+            title: myPlaces[i].name
+        });
+        //Добавим попап, который будет появляться при клике на маркер
+        var infowindow = new google.maps.InfoWindow({
+            content: '<h1>' + myPlaces[i].name + '</h1><br/>' + myPlaces[i].description
+        });
+        //привязываем попап к маркеру на карте
+        makeInfoWindowEvent(map, infowindow, marker);
+        markers.push(marker);
+    }
+}
+function makeInfoWindowEvent(map, infowindow, marker) {
+    //Привязываем событие КЛИК к маркеру
+    google.maps.event.addListener(marker, 'click', function() {
+        infowindow.open(map, marker);
+    });
+}
+//Это класс для удобного манипулирования местами
+function Place(name, latitude, longitude, description){
+    this.name = name;  // название
+    this.latitude = latitude;  // широта
+    this.longitude = longitude;  // долгота
+    this.description = description;  // описание места
+}
+//Когда документ загружен полностью - запускаем инициализацию карты.
+google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>
+
+<script>
+    function initialize() {
+    //получаем наш div куда будем карту добавлять
+    var mapCanvas = document.getElementById('mobmap');
+    // задаем параметры карты
+    var mapOptions = {
+        //Это центр куда спозиционируется наша карта при загрузке
+        center: new google.maps.LatLng(49.8832, 8.8193),
+
+
+
+        //увеличение под которым будет карта, от 0 до 18
+        // 0 - минимальное увеличение - карта мира
+        // 18 - максимально детальный масштаб
+        zoom: 13,
+        //Тип карты - обычная дорожная карта
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    //Инициализируем карту
+    var map = new google.maps.Map(mapCanvas, mapOptions);
+    var image = 'images/baloon.png';
+    //Объявляем массив с нашими местами и маркерами
+    var markers = [],
+        myPlaces = [];
+    //Добавляем места в массив
+    myPlaces.push(new Place('Wald Str ', 49.882673, 8.8169141, 'Wald Str. 79C, <br>64846 Gross-Zimmern, <br>Deutschland'));
+
+
+
+    //Теперь добавим маркеры для каждого места
+    for (var i = 0, n = myPlaces.length; i < n; i++) {
+        var marker = new google.maps.Marker({
+            //расположение на карте
+            position: new google.maps.LatLng(myPlaces[i].latitude, myPlaces[i].longitude),
+            map: map,
+            icon: image,
+            //То что мы увидим при наведении мышкой на маркер
+            title: myPlaces[i].name
+        });
+        //Добавим попап, который будет появляться при клике на маркер
+        var infowindow = new google.maps.InfoWindow({
+            content: '<h1>' + myPlaces[i].name + '</h1><br/>' + myPlaces[i].description
+        });
+        //привязываем попап к маркеру на карте
+        makeInfoWindowEvent(map, infowindow, marker);
+        markers.push(marker);
+    }
+}
+function makeInfoWindowEvent(map, infowindow, marker) {
+    //Привязываем событие КЛИК к маркеру
+    google.maps.event.addListener(marker, 'click', function() {
+        infowindow.open(map, marker);
+    });
+}
+//Это класс для удобного манипулирования местами
+function Place(name, latitude, longitude, description){
+    this.name = name;  // название
+    this.latitude = latitude;  // широта
+    this.longitude = longitude;  // долгота
+    this.description = description;  // описание места
+}
+//Когда документ загружен полностью - запускаем инициализацию карты.
+google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>
+
+
+
+
+  </head>
+  <body>
+    <div class="wrap">
+    <div class="header">
+        <div class="container">
+               <div class="top-header">
+                        <div class="logo">
+                            <a href="/"></a>
+                        </div>
+
+                         <div class="reg-block">
+                            <ul id="in_login">
+                                <li class="zakl"><a href="#">Закладки (25)</a></li>
+                                <li class="spis"><a href="#">Список (23)</a></li>
+                                <li class="profil"><a href="#">Профиль</a></li>
+                                <li class="exit"><a href="#">Выход</a></li>
+                            </ul>
+                        </div>
+
+
+                </div>
+                <div id="nav">
+                  <ul>
+                        <li class="home dv act"><a href="#"><i></i>Главная</a></li>
+                        <li class="avtor dv hides"><a href="#"><i></i>Авторизация</a></li>
+                        <li class="legko"><a href="#"><i></i>Легковые</a></li>
+                        <li class="bus"><a href="#"><i></i>Автобусы</a></li>
+                        <li class="gruz"><a href="#"><i></i>Грузовые</a></li>
+                        <li class="spec"><a href="#"><i></i>Спецтехника</a></li>
+                        <li class="moto"><a href="#"><i></i>Мотоциклы</a></li>
+                        <li class="lodka"><a href="#"><i></i>Лодки</a></li>
+                        <li class="sogl dv hides"><a href="#"><i></i>Cоглашение</a></li>
+                        <li class="kont dv hides"><a href="#"><i></i>Контакты</a></li>
+                      </ul>
+                </div>
+            </div>
+    </div>
+    <div class="main">
+
+        <div class="container">
+            <div class="content">
+                  <h2 class="img_h2">Легковые автомобили</h2>
+                  <div class="fotorama"
+                     data-width="621"
+                     data-nav="thumbs"
+                     data-thumbheight="102">
+                    <a href="images/int222_03.jpg"><img src="images/int222_13.jpg" width="140" height="102"></a>
+                    <a href="images/int222_04.jpg"><img src="images/int222_14.jpg" width="140" height="102"></a>
+                    <a href="images/int222_03.jpg"><img src="images/int222_13.jpg" width="140" height="102"></a>
+                    <a href="images/int222_04.jpg"><img src="images/int222_14.jpg" width="140" height="102"></a>
+                    <a href="images/int222_03.jpg"><img src="images/int222_13.jpg" width="140" height="102"></a>
+                    <a href="images/int222_04.jpg"><img src="images/int222_14.jpg" width="140" height="102"></a>
+                    <a href="images/int222_03.jpg"><img src="images/int222_13.jpg" width="140" height="102"></a>
+                    <a href="images/int222_04.jpg"><img src="images/int222_14.jpg" width="140" height="102"></a>
+                  </div>
+
+                  <div class="car_inf">
+                     <div class="ov">
+                        <div class="ll">
+                            <h3>BMW 6 series</h3>
+                            <div class="dinf">
+                                <span class="data">20.08.2013</span>
+                                <span class="smotr">1500</span>
+                            </div>
+
+                            <div class="prc">
+                                <big>18 000 €</big> brutto
+                            </div>
+                            <div class="prc">
+                                <b>15 126 €</b> netto
+                            </div>
+
+                        </div>
+                        <div class="rr">
+                            <div class="info-line">Год выпуска:<span>2007</span></div>
+                            <div class="info-line">Пробег:<span>300 000 km</span></div>
+                            <div class="info-line">Тип двигателя:<span>Бензин</span></div>
+                            <div class="info-line">Трансмиссия:<span>Автомат</span></div>
+                            <div class="info-line">Привод:<span>Полный</span></div>
+                            <div class="info-line">Интерьер:<span>Матерчатый</span></div>
+                            <div class="info-line">Климат:<span>Климатконтроль</span></div>
+                        </div>
+                     </div>  <!--class="ov"> -->
+                  <div class="cartext">
+                    <p>
+                        BMW 630 i . Automatik mit der Steptronic Funktion +F 1 Schaltung .
+                         Sportsitze mit Memory Funktion Teilleder Schwarz . M-Sport Multifunktionslenkrad mit Schaltwip-<br>pen
+                          .Aus Erste Hand mit Scheckheft .Xenon-Licht , Klimaautomatik HiFi Lautsprecher<br>-system .Eu-Fahrzeug .Weitere Informationen erhalten Sie von unserem Verkäufer vor Ort.Gebrauchtwagengarantie abzuschließen , das Fahrzeug Finanzieren, oder Ihre gebrauchte Ins Zahlung geben, bei uns ist dies kein Problem. Wir freuen uns auf Ihren Besuch.Verkauf erfolgt im Auftrag.Irrtum,Schreibfehler und Zwischenverkauf vorbehalten = bitte
+                    </p>
+                  </div>
+
+                  <div class=" botsoc">
+                    <a href="#" class="inzakl">Добавить в закладки</a>
+
+                    <div class="share">
+                        <span class="tx">Поделиться</span>
+                        <a class="f"  href="#"></a>
+                        <a class="tw"  href="#"></a>
+                        <a class="g"  href="#"></a>
+                        <a class="mail"  href="#"></a>
+                    </div>
+                  </div>
+
+                  </div>  <!--class="car_inf"> -->
+
+                </div>  <!--class="content">-->
+                <div class="right-menu car">
+                    <h4>MobileMakler</h4>
+                    <address>
+                        <i class="icn"></i>
+                        Wald Str. 79C<br>
+                        64846 Gross-Zimmern <br>
+                        Deutschland<br>
+                    <a href="#" id="onmap">На карте</a>
+                    </address>
+                    <div class="manager">
+                        <a href="#"> <img src="images/elena.jpg" width="80" height="80" alt=""></a>
+                        <p>Elena Brjuchovic</p>
+                        <span>Manager</span>
+                    </div>
+                    <div class="phones">
+                        <p class="ph1"><a href="tel:+4906071392273">+49 (0) 607 139 22 73</a></p>
+                        <p class="ph2"><a href="tel:+4901733016442">+49 (0) 173 301 64 42</a></p>
+                    </div>
+
+                    <a href="#" class="mail">Написать сообщение</a>
+                </div>  <!--right-menu car -->
+                <div  class="mob_map" id="mobmap"></div>
+
+                <div class="clear"></div>
+            </div> <!-- class="container">-->
+        </div>  <!--class="main"> -->
+
+    <div class="footer">
+        <div class="container">
+                <p>© 2014  <a href=""> Соглашение</a></p>
+                <div class="social">
+                    <ul>
+                        <li class="fb"><a href=""></a></li>
+                        <li class="tw"><a href=""></a></li>
+                        <li class="goo"><a href=""></a></li>
+                    </ul>
+                </div>
+                <p class="right"><a href="#mpp" rel="m_PageScroll2id">Контакты</a>, <a href="#"> impressum</a></p>
+        </div>
+
+    </div>
+   <div class="footer2" id="ff22">
+            <div class="infa">
+                <div class="container">
+                    <div class="col1 co">
+                        <h3>Impressum</h3>
+                         <P>
+                            Umsatzsteuer-Identifikationsnummer <br>nach § 27 a Umsatzsteuergesetz: <br>DE267996159<br>Inhaber Andrej Brjuchovic
+                         </P>
+                        <P>
+                         Copyright © 2011 - 2015
+                        </P>
+                    </div>
+                    <div class="col2 co">
+                        <h3>Контакты</h3>
+                         <div class="icons">
+                            <p class="tel"> +49 (0) 6071392273 </p>
+                            <p class="skype">mobilemakler.com</p>
+                            <p class="mail">mobilemakler@gmail.com</p>
+                        </div>
+                        <P>Mo. - Fr.:  08:30 - 18:00 Uhr </P>
+                    </div>
+                    <div class="col3 co">
+                        <div class="social1">
+                            <ul>
+                                <li class="fb1"><a href=""></a></li>
+                                <li class="tw1"><a href=""></a></li>
+                                <li class="goo1"><a href=""></a></li>
+                            </ul>
+                        </div>
+
+                       <P>
+                        Waldstraße 79C<br>
+64846 Groß-Zimmern <br>
+Deutschland
+                       </P>
+
+                       <P><a href="#">Пользовательское соглашение</a></P>
+
+
+                    </div>
+
+                </div> <!--class="container -->
+            </div> <!--class="infa">-->
+
+            <div class="mappp" >
+                <div class="contar" id="mpp"></div>
+            </div>
+        </div> <!-- class="footer2"     -->
+        </div>  <!--class="wrap">-->
+
+
+        <div class="fix_map">
+
+        <aside class="itm_cars side_rec">
+             <div class="car">
+
+                <div class="img">
+                    <a href="#"><img src="images/mers.jpg" alt=""></a>
+                </div>
+                <div class="text">
+                    <div class="harak">
+                        <p class="title"><a href="#">BMW <br>6 series</a></p>
+                        <span class="le">2007</span> <span class="ri">300 000 km</span>
+                        <p><b>19 999      €</b> </p>
+                        <p class="minip">без НДС</p>
+
+                     </div>
+
+                    <div class="bot">
+                        <p>3,0 бензин автомат (бензин/электричество)</p>
+                        <p>Автоматическая коробка передач</p>
+                        <p>Частично из кожи</p>
+
+                    </div>
+                </div>
+            </div>
+             <div class="car">
+
+                <div class="img">
+                    <a href="#"><img src="images/mers.jpg" alt=""></a>
+                </div>
+                <div class="text">
+                    <div class="harak">
+                        <p class="title"><a href="#">BMW <br>6 series</a></p>
+                        <span class="le">2007</span> <span class="ri">300 000 km</span>
+                        <p><b>19 999</b>  € брутто </p>
+                        <p class="minip"><b>16 500</b>  € netto</p>
+
+                     </div>
+
+                    <div class="bot">
+                        <p>3,0 бензин автомат (бензин/электричество)</p>
+                        <p>Автоматическая коробка передач</p>
+                        <p>Частично из кожи</p>
+                        <p>чтот еще </p>
+                        <p>и еще.. </p>
+                    </div>
+                </div>
+            </div>
+              <div class="car">
+
+                <div class="img">
+                    <a href="#"><img src="images/mers.jpg" alt=""></a>
+                </div>
+                <div class="text">
+                    <div class="harak">
+                        <p class="title"><a href="#">BMW <br>6 series</a></p>
+                        <span class="le">2007</span> <span class="ri">300 000 km</span>
+                        <p><b>19 999</b>  € брутто </p>
+                        <p class="minip"><b>16 500</b>  € netto</p>
+
+                     </div>
+
+                    <div class="bot">
+                        <p>3,0 бензин автомат (бензин/электричество)</p>
+                        <p>Автоматическая коробка передач</p>
+                        <p>Частично из кожи</p>
+                        <p>чтот еще </p>
+                        <p>и еще.. </p>
+                        <p>и еще еще.. </p>
+                    </div>
+                </div>
+            </div>
+
+             <div class="car">
+
+                <div class="img">
+                    <a href="#"><img src="images/mers.jpg" alt=""></a>
+                </div>
+                <div class="text">
+                    <div class="harak">
+                        <p class="title"><a href="#">BMW <br>6 series</a></p>
+                        <span class="le">2007</span> <span class="ri">300 000 km</span>
+                        <p><b>19 999      €</b> </p>
+                        <p class="minip">без НДС</p>
+
+                     </div>
+
+                    <div class="bot">
+                        <p>3,0 бензин автомат (бензин/электричество)</p>
+                        <p>Автоматическая коробка передач</p>
+                        <p>Частично из кожи</p>
+
+                    </div>
+                </div>
+            </div>
+             <div class="car">
+
+                <div class="img">
+                    <a href="#"><img src="images/mers.jpg" alt=""></a>
+                </div>
+                <div class="text">
+                    <div class="harak">
+                        <p class="title"><a href="#">BMW <br>6 series</a></p>
+                        <span class="le">2007</span> <span class="ri">300 000 km</span>
+                        <p><b>19 999</b>  € брутто </p>
+                        <p class="minip"><b>16 500</b>  € netto</p>
+
+                     </div>
+
+                    <div class="bot">
+                        <p>3,0 бензин автомат (бензин/электричество)</p>
+                        <p>Автоматическая коробка передач</p>
+                        <p>Частично из кожи</p>
+                        <p>чтот еще </p>
+                        <p>и еще.. </p>
+                    </div>
+                </div>
+            </div>
+              <div class="car">
+
+                <div class="img">
+                    <a href="#"><img src="images/mers.jpg" alt=""></a>
+                </div>
+                <div class="text">
+                    <div class="harak">
+                        <p class="title"><a href="#">BMW <br>6 series</a></p>
+                        <span class="le">2007</span> <span class="ri">300 000 km</span>
+                        <p><b>19 999</b>  € брутто </p>
+                        <p class="minip"><b>16 500</b>  € netto</p>
+
+                     </div>
+
+                    <div class="bot">
+                        <p>3,0 бензин автомат (бензин/электричество)</p>
+                        <p>Автоматическая коробка передач</p>
+                        <p>Частично из кожи</p>
+                        <p>чтот еще </p>
+                        <p>и еще.. </p>
+                        <p>и еще еще.. </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+        </aside>
+
+
+         <div class="filt_pref">
+             <div class="wt_car">
+                <h3 class="vl">Легковые</h3>
+                <h3 class="vr"><a href="#">Запчасти</a></h3>
+             </div>
+             <div class="spis">
+                <a href="#">Список</a>
+             </div>
+
+             <div id="razv">
+                развернуть фильтр
+             </div>
+         </div>
+        <aside class="map_find">
+                    <div class="container">
+                        <div id="closer_map"></div>
+                        <div class="show_filt"></div>
+                        <div class="sliders-block down">
+
+                                <div class="year-slider">
+
+                                        <span class="slider-text">Год</span>
+                                     <div class="layout-slider">
+                                      <input id="Slider4" type="slider" name="area" value="1980;2015" />
+                                    </div>
+
+
+                                </div>
+                                <div class="price-slider">
+                                            <div class="text">Цена</div>
+                                         <div class="checkbox">
+
+                                             <input type="checkbox" id="nds22" name="nds" />
+                                                <label for="nds22">
+                                                    <span class="pseudo-checkbox white"></span>
+                                                    <span class="label-text">Только&nbsp;с&nbsp;НДС</span>
+                                                </label>
+                                         </div>
+                                          <div class="layout-slider">
+                                          <input id="Slider5" type="slider" name="price" value="1000;500000" />
+                                        </div>
+
+                                </div>
+                        </div>
+                        <div class="bottom-filter down">
+                        <div class="filter-menu">
+                                 <a class="toggleMenu" href="#">Меню</a>
+                                 <div class="box"> <input type="submit" value="Найти" class="btngeen" name="sbm2" id="sbt2">
+                                 </div>
+
+<select name="countries down" id="countries2"  style="width:230px">
+  <option value='at' data-image="images/blank.gif" data-imagecss="flag at" data-title="Austria">Austria</option>
+  <option value='gr' data-image="images/blank.gif" data-imagecss="flag gr" data-title="Greece">Greece</option>
+  <option value='mt' data-image="images/blank.gif" data-imagecss="flag mt" data-title="Malta">Malta</option>
+  <option value='sk' data-image="images/blank.gif" data-imagecss="flag sk" data-title="Slovakia">Slovakia</option>
+  <option value='al' data-image="images/blank.gif" data-imagecss="flag al" data-title="Albania">Albania</option>
+  <option value='dk' data-image="images/blank.gif" data-imagecss="flag dk" data-title="Denmark">Denmark</option>
+  <option value='md' data-image="images/blank.gif" data-imagecss="flag md" data-title="Moldova">Moldova</option>
+  <option value='si' data-image="images/blank.gif" data-imagecss="flag si" data-title="Slovenia">Slovenia</option>
+  <option value='ad' data-image="images/blank.gif" data-imagecss="flag ad" data-title="Andorra">Andorra</option>
+  <option value='ie' data-image="images/blank.gif" data-imagecss="flag ie" data-title="Ireland">Ireland</option>
+  <option value='mc' data-image="images/blank.gif" data-imagecss="flag mc" data-title="Monaco">Monaco</option>
+  <option value='ua' data-image="images/blank.gif" data-imagecss="flag ua" data-title="Ukraine">Ukraine</option>
+  <option value='by' data-image="images/blank.gif" data-imagecss="flag by" data-title="Belarus">Belarus</option>
+  <option value='is' data-image="images/blank.gif" data-imagecss="flag is" data-title="Iceland">Iceland</option>
+  <option value='nl' data-image="images/blank.gif" data-imagecss="flag nl" data-title="Netherlands">Netherlands</option>
+  <option value='fi' data-image="images/blank.gif" data-imagecss="flag fi" data-title="Finland">Finland</option>
+  <option value='be' data-image="images/blank.gif" data-imagecss="flag be" data-title="Belgium">Belgium</option>
+  <option value='es' data-image="images/blank.gif" data-imagecss="flag es" data-title="Spain">Spain</option>
+  <option value='no' data-image="images/blank.gif" data-imagecss="flag no" data-title="Norway">Norway</option>
+  <option value='fr' data-image="images/blank.gif" data-imagecss="flag fr" data-title="France">France</option>
+  <option value='bg' data-image="images/blank.gif" data-imagecss="flag bg" data-title="Bulgaria">Bulgaria</option>
+  <option value='it' data-image="images/blank.gif" data-imagecss="flag it" data-title="Italy">Italy</option>
+  <option value='pl' data-image="images/blank.gif" data-imagecss="flag pl" data-title="Poland">Poland</option>
+  <option value='hr' data-image="images/blank.gif" data-imagecss="flag hr" data-title="Croatia (Hrvatska)">Croatia (Hrvatska)</option>
+  <option value='ba' data-image="images/blank.gif" data-imagecss="flag ba" data-title="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+  <option value='lv' data-image="images/blank.gif" data-imagecss="flag lv" data-title="Latvia">Latvia</option>
+  <option value='pt' data-image="images/blank.gif" data-imagecss="flag pt" data-title="Portugal">Portugal</option>
+  <option value='cs' data-image="images/blank.gif" data-imagecss="flag cs" data-title="Serbia and Montenegro">Serbia and Montenegro</option>
+  <option value='va' data-image="images/blank.gif" data-imagecss="flag va" data-title="Vatican City State (Holy See)">Vatican City</option>
+  <option value='lt' data-image="images/blank.gif" data-imagecss="flag lt" data-title="Lithuania">Lithuania</option>
+  <option value='ru' data-image="images/blank.gif" data-imagecss="flag ru" data-title="Russian Federation">Russian Federation</option>
+  <option value='cz' data-image="images/blank.gif" data-imagecss="flag cz" data-title="Czech Republic">Czech Republic</option>
+  <option value='gb' data-image="images/blank.gif" data-imagecss="flag gb" data-title="Great Britain (UK)">Great Britain (UK)</option>
+    <option value='li' data-image="images/blank.gif" data-imagecss="flag li" data-title="Liechtenstein">Liechtenstein</option>
+  <option value='ro' data-image="images/blank.gif" data-imagecss="flag ro" data-title="Romania">Romania</option>
+  <option value='ch' data-image="images/blank.gif" data-imagecss="flag ch" data-title="Switzerland">Switzerland</option>
+  <option value='hu' data-image="images/blank.gif" data-imagecss="flag hu" data-title="Hungary">Hungary</option>
+    <option value='lu' data-image="images/blank.gif" data-imagecss="flag lu" data-title="Luxembourg">Luxembourg</option>
+    <option value='sm' data-image="images/blank.gif" data-imagecss="flag sm" data-title="San Marino">San Marino</option>
+  <option value='se' data-image="images/blank.gif" data-imagecss="flag se" data-title="Sweden">Sweden</option>
+    <option value='de' data-image="images/blank.gif" data-imagecss="flag de" data-title="Germany">Germany</option>
+  <option value='mk' data-image="images/blank.gif" data-imagecss="flag mk" data-title="Macedonia">Macedonia</option>
+    <option value='cs' data-image="images/blank.gif" data-imagecss="flag cs" data-title="Serbia">Serbia</option>
+    <option value='ee' data-image="images/blank.gif" data-imagecss="flag ee" data-title="Estonia">Estonia</option>
+    <option value='eu' selected="selected" data-image="images/blank.gif" data-imagecss="flag eu" data-title="Euro">Вся Европа</option>
+
+
+    </select>
+
+<ul class="nav2">
+
+        <li class="static">
+        <a href="#">Категория</a>
+          <ul>
+            <li>
+                <a href="#">Все категории <i class="count">350</i></a>
+            </li>
+            <li>
+                <a href="#">Грузоподъемность до 7,5т <i class="count">120</i></a>
+                <ul>
+                    <li><a href="#">Гидравлическая платформа <i class="count">350</i></a></li>
+                    <li><a href="#">Грузовик с гидроподъемником <i class="count">350</i></a></li>
+                    <li><a href="#">Автомобиль техпомощи <i class="count">350</i></a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Грузоподъемность свыше 7,5т <i class="count">418</i></a>
+                <ul>
+                    <li><a href="#">Автокран <i class="count">50</i></a></li>
+                    <li><a href="#">Автомобилевоз <i class="count">120</i></a></li>
+                    <li><a href="#">Автомобиль для перевозки скота <i class="count">18</i></a></li>
+                    <li><a href="#">Автомобиль-мусоровоз <i class="count">200</i></a></li>
+                    <li><a href="#">Бортовая платформа <i class="count">15</i></a></li>
+                    <li><a href="#">Вакуумно-напорная машина <i class="count">15</i></a></li>
+                    <li><a href="#">Высокий крытый фургон <i class="count">15</i></a></li>
+                    <li><a href="#">Высокий удлиненный фургон <i class="count">15</i></a></li>
+                    <li><a href="#">Гидравлическая платформа <i class="count">15</i></a></li>
+                    <li><a href="#">Грузовик с гидроподъемником <i class="count">15</i></a></li>
+                    <li><a href="#">Автомобиль техпомощи <i class="count">15</i></a></li>
+                    <li><a href="#">Высокий удлиненный фургон <i class="count">15</i></a></li>
+                    <li><a href="#">Гидравлическая платформа <i class="count">186</i></a></li>
+                    <li><a href="#">Грузовик с гидроподъемником <i class="count">17</i></a></li>
+                    <li><a href="#">Автомобиль техпомощи <i class="count">145</i></a></li>
+                    <li><a href="#">Автокран <i class="count">50</i></a></li>
+                    <li><a href="#">Автомобилевоз <i class="count">120</i></a></li>
+                    <li><a href="#">Автомобиль для перевозки скота <i class="count">18</i></a></li>
+                    <li><a href="#">Автомобиль-мусоровоз <i class="count">200</i></a></li>
+                    <li><a href="#">Бортовая платформа <i class="count">15</i></a></li>
+                    <li><a href="#">Вакуумно-напорная машина <i class="count">15</i></a></li>
+                    <li><a href="#">Высокий крытый фургон <i class="count">15</i></a></li>
+                    <li><a href="#">Высокий удлиненный фургон <i class="count">15</i></a></li>
+                    <li><a href="#">Гидравлическая платформа <i class="count">15</i></a></li>
+                    <li><a href="#">Грузовик с гидроподъемником <i class="count">15</i></a></li>
+                    <li><a href="#">Автомобиль техпомощи <i class="count">15</i></a></li>
+                    <li><a href="#">Высокий удлиненный фургон <i class="count">15</i></a></li>
+                    <li><a href="#">Гидравлическая платформа <i class="count">186</i></a></li>
+                    <li><a href="#">Грузовик с гидроподъемником <i class="count">17</i></a></li>
+                    <li><a href="#">Автомобиль техпомощи <i class="count">145</i></a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">lamborgoni</a>
+                <ul>
+                    <li><a href="#">Мокасины</a></li>
+                    <li><a href="#">Кроссовки</a></li>
+                    <li><a href="#">Классические</a></li>
+                </ul>
+            </li>
+
+        </ul>
+    </li>
+       <li class="static">
+        <a href="#">Марки</a>
+        <ul>
+
+
+<li> <a href="#">Abarth</a> <a href="#">Abarth</a> <a href="#">Abarth</a> <a href="#">Abarth</a> <a href="#">Abarth</a> <a href="#">Abarth</a> <a href="#">Abarth</a> <a href="#">Abarth</a> <a href="#">Abarth</a> <a href="#">Abarth</a> <a href="#">Abarth</a> <a href="#">Abarth</a> <a href="#">Abarth</a></li>
+
+<li> <a href="#">Bentley</a> <a href="#">BMW</a> <a href="#">Bentley</a> <a href="#">BMW</a> <a href="#">Bentley</a> <a href="#">BMW</a> <a href="#">Bentley</a> <a href="#">BMW</a> <a href="#">Bentley</a> <a href="#">BMW</a> <a href="#">Bentley</a> <a href="#">BMW</a></li>
+<li> <a href="#">Cadillac </a> <a href="#">Casalini </a> <a href="#">Cadillac </a> <a href="#">Casalini </a> <a href="#">Cadillac </a> <a href="#">Casalini </a> <a href="#">Casalini </a></li>
+<li> <a href="#">Dacia </a> <a href="#">Daewoo </a> <a href="#">Dacia </a> <a href="#">Daewoo </a> <a href="#">Daewoo </a> </li>
+<li> <a href="#">Ferrai </a>  <a href="#">Fiat </a> <a href="#">Ferrai </a>  <a href="#">Fiat </a> </li>
+<li> <a href="#">GAC </a>  <a href="#">Gonow </a> <a href="#">GAC </a>  <a href="#">Gonow </a>  </li>
+<li> <a href="#">Hamann </a>  <a href="#">Holden </a><a href="#">Hamann </a>  <a href="#">Holden </a><a href="#">Holden </a>  </li>
+<li> <a href="#">Infiniti </a>  <a href="#">Isuzu </a> <a href="#">Iveco </a> <a href="#">Infiniti </a>  <a href="#">Isuzu </a> <a href="#">Iveco </a>  </li>
+<li> <a href="#">Kia </a>  <a href="#">KTM </a> <a href="#">Kenigsegg </a>  </li>
+<li> <a href="#">Lada </a>  <a href="#">Lamborgini </a> <a href="#">Lancia </a> <a href="#">Land Rover </a>  <a href="#">Land Rover </a> <a href="#">Land Rover </a> <a href="#">Land Rover </a> <a href="#">Land Rover </a> </li>
+<li> <a href="#">Mahindra </a>  <a href="#">Maserati </a> <a href="#">Maybach </a>  <a href="#">Mahindra </a>  <a href="#">Maserati </a> <a href="#">Maybach </a>   <a href="#">Maybach </a></li>
+<li> <a href="#">Nissan </a>  <a href="#">NSU </a></li>
+<li> <a href="#">Oldsmobile </a>  <a href="#">Opel </a>  </li>
+<li> <a href="#">Pagani </a>  <a href="#">Peugeot </a>  <a href="#">Pagani </a>  <a href="#">Peugeot </a>  <a href="#">Pagani </a>  <a href="#">Peugeot </a></li>
+<li> <a href="#">Renault </a>  <a href="#">Rolls-Royce </a> <a href="#">Rover </a> <a href="#">Renault </a>  <a href="#">Rolls-Royce </a> <a href="#">Rover </a>  <a href="#">Renault </a>  <a href="#">Rolls-Royce </a> <a href="#">Rover </a>   </li>
+<li> <a href="#">Talbot </a>  <a href="#">Tata </a> <a href="#">TECHART </a> <a href="#">Tesla </a> <a href="#">Talbot </a>  <a href="#">Tata </a> <a href="#">TECHART </a> <a href="#">Tesla </a>  </li>
+<li> <a href="#">Volkswagen </a>  <a href="#">Volvo </a> </li>
+<li> <a href="#">Ferrai </a>  <a href="#">Ferrai </a> <a href="#">Ferrai </a> <a href="#">Ferrai </a>  </li>
+<li> <a href="#">Wartburg </a>  <a href="#">Westfield </a> <a href="#">Weismann </a>  </li>
+
+
+
+
+        </ul>
+    </li>
+     <li class="static model">
+        <a href="#">Модели</a>
+        <ul>
+            <li>
+              <a href="#">
+4Runner70
+</a>
+</li>
+<li>
+<a href="#">
+Allex8
+</a>
+
+
+<a href="#">
+Allion12
+</a>
+
+
+<a href="#">
+Alphard29
+</a>
+
+
+<a href="#">
+Altezza42
+</a>
+
+
+<a href="#">
+Aristo10
+</a>
+
+
+<a href="#">
+Aurion1
+</a>
+
+
+<a href="#">
+Auris313
+</a>
+
+
+<a href="#">
+Avalon8
+</a>
+
+
+<a href="#">
+Avensis790
+</a>
+
+
+<a href="#">
+Avensis Verso14
+</a>
+
+
+<a href="#">
+Aygo24
+</a>
+</li>
+<li>
+<a href="#">
+bB34
+</a>
+
+
+<a href="#">
+Belta8
+</a>
+
+
+<a href="#">
+Blade1
+</a>
+
+
+<a href="#">
+Blizzard
+</a>
+
+
+<a href="#">
+Brevis3
+</a>
+</li>
+<li>
+<a href="#">Caldina85</a>
+<a href="#">Cami10</a>
+<a href="#">Camry1974</a>
+<a href="#">Camry (Japan)162</a>
+<a href="#">Camry Solara31</a>
+<a href="#">Carina177</a>
+<a href="#">Carina ED21</a>
+<a href="#">Cavalier8</a>
+<a href="#">Celica169</a>
+<a href="#">Celsior2</a>
+<a href="#">Century1</a>
+<a href="#">Chaser74</a>
+<a href="#">Corolla2084</a>
+<a href="#">Corolla Rumion12</a>
+<a href="#">Corolla Spacio32</a>
+<a href="#">Corolla Verso45</a>
+<a href="#">Corona65</a>
+<a href="#">Corsa14</a>
+<a href="#">Cressida2</a>
+<a href="#">Cresta42</a>
+<a href="#">Crown78</a>
+<a href="#">Crown Majesta6</a>
+<a href="#">Curren11</a>
+<a href="#">Cynos9</a>
+</li>
+ <li>
+<a href="#">
+Duet14
+</a>
+</li>
+<li>
+<a href="#">
+Echo28
+</a>
+
+
+<a href="#">
+Estima65
+</a>
+
+</li>
+
+<li>
+<a href="#">
+FJ Cruiser19
+</a>
+
+
+<a href="#">
+Fortuner19
+</a>
+
+
+<a href="#">
+FunCargo14
+</a>
+
+</li>
+
+<li>
+<a href="#">
+Gaia17
+</a>
+
+
+<a href="#">
+ Granvia3
+</a>
+
+
+<a href="#">
+GT8615
+</a>
+
+</li>
+
+<li>
+<a href="#">
+Harrier42
+</a>
+
+
+<a href="#">
+HiAce70
+</a>
+
+
+<a href="#">
+Highlander426
+</a>
+
+
+<a href="#">
+Hilux171
+</a>
+
+
+<a href="#">
+Hilux Surf41
+</a>
+
+</li>
+
+
+<li>
+<a href="#">
+Innova
+</a>
+
+
+<a href="#">
+Ipsum39
+</a>
+
+
+<a href="#">
+iQ10
+</a>
+
+
+<a href="#">
+ISis11
+</a>
+
+
+<a href="#">
+ Ist18
+</a>
+
+</li>
+
+<li>
+<a href="#">
+Kluger9
+</a>
+</li>
+
+
+<li>
+<a href="#">
+Land Cruiser1484
+</a>
+
+
+<a href="#">
+Land Cruiser Prado1427
+</a>
+
+
+<a href="#">
+LiteAce24
+</a>
+</li>
+<li>
+<a href="#">
+Mark II203
+</a>
+
+
+<a href="#">
+Mark X22
+</a>
+
+
+<a href="#">
+Mark X ZiO4
+</a>
+
+
+<a href="#">
+MasterAce Surf2
+</a>
+
+
+<a href="#">
+Matrix51
+</a>
+
+
+<a href="#">
+Mega Cruiser2
+</a>
+
+
+<a href="#">
+MR220
+</a>
+
+ </li>
+
+ <li>
+<a href="#">
+Nadia10
+</a>
+
+
+<a href="#">
+Noah21
+</a>
+
+ </li>
+
+ <li>
+<a href="#">
+Opa18
+</a>
+
+
+<a href="#">
+Origin
+</a>
+ </li>
+<li>
+<a href="#">
+Paseo3
+</a>
+
+
+<a href="#">
+Passo21
+</a>
+
+
+<a href="#">
+Passo Sette4
+</a>
+
+
+<a href="#">
+Picnic8
+</a>
+
+
+<a href="#">
+Platz22
+</a>
+
+
+<a href="#">
+Porte9
+</a>
+
+
+<a href="#">
+Premio18
+</a>
+
+
+<a href="#">
+Previa26
+</a>
+
+
+<a href="#">
+Prius209
+</a>
+
+
+<a href="#">
+Prius c2
+</a>
+
+
+<a href="#">
+Prius v (+)6
+</a>
+
+
+<a href="#">
+ProAce
+</a>
+
+
+<a href="#">Probox8</a>
+<a href="#">
+Progres2
+</a>
+
+
+<a href="#">
+Pronard
+</a>
+</li>
+
+ <li>
+<a href="#">
+Ractis13
+</a>
+
+
+<a href="#">
+Raum23
+</a>
+
+
+<a href="#">
+RAV 41382
+</a>
+
+
+<a href="#">
+Regius12
+</a>
+
+
+<a href="#">
+RegiusAce
+</a>
+
+
+<a href="#">
+Rush6
+</a>
+
+</li>
+
+
+<li>
+
+
+<a href="#">
+Sai
+</a>
+
+
+<a href="#">
+Scepter
+</a>
+<a href="#">
+Sequoia74
+</a>
+<a href="#">
+Sera
+</a>
+<a href="#">
+Sienna74
+</a>
+<a href="#">
+Sienta11
+</a>
+<a href="#">
+Soarer12
+</a>
+<a href="#">
+Soluna
+</a>
+<a href="#">
+Sparky1
+</a>
+<a href="#">
+Sprinter17
+</a>
+<a href="#">Sprinter Carib10</a>
+<br><a href="#">Sprinter Marino18</a>
+<a href="#">Sprinter Trueno12</a>
+<a href="#">Starlet17</a>
+<a href="#">
+Succeed9
+</a>
+<a href="#">
+Supra16
+</a>
+</li>
+
+<li>
+<a href="#">
+Tacoma6
+</a>
+
+
+<a href="#">
+Tercel5
+</a>
+
+
+<a href="#">
+TownAce46
+</a>
+
+
+<a href="#">
+Tundra149
+</a>
+ </li>
+
+ <li>
+<a href="#">
+Urban Cruiser5
+</a>
+</li>
+
+
+ <li>
+<a href="#">
+Vanguard1
+</a>
+
+
+<a href="#">
+Vellfire3
+</a>
+
+
+<a href="#">
+Venza152
+</a>
+
+
+<a href="#">
+Verossa9
+</a>
+
+
+<a href="#">
+Verso91
+</a>
+
+
+<a href="#">
+Verso-S3
+</a>
+
+
+<a href="#">
+Vios1
+</a>
+
+
+<a href="#">
+Vista66
+</a>
+
+
+<a href="#">
+Vitz88
+</a>
+
+
+<a href="#">
+Voltz3
+</a>
+
+
+<a href="#">
+Voxy21
+</a>
+
+</li>
+<li>
+<a href="#">
+WiLL16
+</a>
+
+
+<a href="#">
+WiLL Cypha3
+</a>
+
+
+<a href="#">
+Windom16
+</a>
+
+
+<a href="#">
+Wish27
+</a>
+
+</li>
+
+ <li>
+<a href="#">
+Yaris265
+</a>
+
+
+<a href="#">
+Yaris Verso8
+</a>
+
+            </li>
+
+
+        </ul>
+    </li>
+
+    <li>
+        <a href="#">Трансмиссия</a>
+        <ul>
+            <li>
+                <a href="#">Автоматическая КП </a>
+            </li>
+            <li>
+                <a href="#">Механическая коробка передач</a>
+            </li>
+                <li>
+                <a href="#">Полуавтоматическая КП</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="#">Топливо</a>
+        <ul>
+           <li>
+<a  href="#">Бензиновый</a>
+</li>
+<li>
+<a  href="#">Водород</a>
+</li>
+<li>
+<a href="#">Гибрид (дизельный/электрический)</a>
+</li>
+<li>
+<a href="#">Гибридный (бензин/электричество)</a>
+</li>
+<li>
+<a  href="#">Дизельный</a>
+</li>
+<li>
+<a  href="#">Иное</a>
+</li>
+<li>
+<a href="#">Природный газ</a>
+</li>
+<li>
+<a  href="#">Сжиженный нефтяной газ</a>
+</li>
+<li>
+<a  href="#">Электрический</a>
+</li>
+<li>
+<a  href="#">Этанол (FFV, E85 и т.п.)</a>
+</li>
+        </ul>
+    </li>
+
+
+    <li>
+        <a href="#">Интерьер</a>
+        <ul>
+            <li><a href="#">Алькантара</a></li>
+            <li><a href="#">Велюр</a></li>
+            <li><a href="#">Другое</a></li>
+            <li><a href="#">Обивка</a></li>
+            <li><a href="#">Полностью из кожи</a></li>
+            <li><a href="#">Частично из кожи</a></li>
+        </ul>
+    </li>
+
+
+</ul>
+
+
+
+
+                        </div>
+
+
+
+                   </div>
+
+                   <div class="clear"></div>
+                  </div>
+
+       <div style="position: relative; height: 100%">
+            <div class="clos_map_mob" id="mapcloser"></div>
+            <div id="all_car_map"></div>
+       </div>
+        </aside>
+
+     </div>
+
+
+     <script>
+var myCenter=new google.maps.LatLng(49.89, 8.8208);
+    function initialize() {
+    //получаем наш div куда будем карту добавлять
+    var mapCanvas = document.getElementById('all_car_map');
+
+    // задаем параметры карты
+    var mapOptions = {
+        //Это центр куда спозиционируется наша карта при загрузке
+        center: myCenter,
+
+        //увеличение под которым будет карта, от 0 до 18
+        // 0 - минимальное увеличение - карта мира
+        // 18 - максимально детальный масштаб
+        zoom: 13,
+        //Тип карты - обычная дорожная карта
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    //Инициализируем карту
+    var map = new google.maps.Map(mapCanvas, mapOptions);
+
+    //Объявляем массив с нашими местами и маркерами
+    var markers = [],
+        myPlaces = [];
+    //Добавляем места в массив
+    myPlaces.push(new Place('Waldstraße ', 49.8431, 8.9111, 'MobileMaker'));
+
+      var image = 'images/baloon.png';
+
+    //Теперь добавим маркеры для каждого места
+    for (var i = 0, n = myPlaces.length; i < n; i++) {
+        var marker = new google.maps.Marker({
+            //расположение на карте
+            position: new google.maps.LatLng(myPlaces[i].latitude, myPlaces[i].longitude),
+            map: map,
+            icon: image,
+            //То что мы увидим при наведении мышкой на маркер
+            title: myPlaces[i].name
+        });
+
+        //Добавим попап, который будет появляться при клике на маркер
+        var infowindow = new google.maps.InfoWindow({
+            content: '<h1>' + myPlaces[i].name + '</h1><br/>' + myPlaces[i].description
+        });
+
+        //привязываем попап к маркеру на карте
+        makeInfoWindowEvent(map, infowindow, marker);
+
+        markers.push(marker);
+
+
+
+      // map.panTo(new google.maps.LatLng(49.4431, 8.2111));
+     // google.maps.event.addListener(map, 'resize', function(){
+    //map.setCenter( marker.getPosition() );
+//});
+    }
+
+}
+function makeInfoWindowEvent(map, infowindow, marker) {
+    //Привязываем событие КЛИК к маркеру
+    google.maps.event.addListener(marker, 'click', function() {
+        infowindow.open(map, marker);
+    });
+}
+
+//Это класс для удобного манипулирования местами
+function Place(name, latitude, longitude, description){
+    this.name = name;  // название
+    this.latitude = latitude;  // широта
+    this.longitude = longitude;  // долгота
+    this.description = description;  // описание места
+}
+//Когда документ загружен полностью - запускаем инициализацию карты.
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>
+    <script>
+      var navigation = responsiveNav("#nav", {
+        animate: true,        // Boolean: Use CSS3 transitions, true or false
+        transition: 400,      // Integer: Speed of the transition, in milliseconds
+        label: "Menu",        // String: Label for the navigation toggle
+        insert: "after",      // String: Insert the toggle before or after the navigation
+        customToggle: "",     // Selector: Specify the ID of a custom toggle
+        openPos: "relative",  // String: Position of the opened nav, relative or static
+        jsClass: "js",        // String: 'JS enabled' class which is added to <html> el
+        init: function(){},   // Function: Init callback
+        open: function(){},   // Function: Open callback
+        close: function(){}   // Function: Close callback
+      });
+    </script>
+
+<script type="text/javascript" src="js/adap_m.js"></script>
+<script type="text/javascript" src="js/start.js"></script>
+
+<script>
+$(document).ready(function(e) {
+    $("#countries").msDropdown(); //image can have css class; Please check source code.
+     $("#Slider4").slider({ from: 1980, to: 2015, limits: false, step: 1});
+    $("#Slider5").slider({ from: 1000, to: 500000, step: 1000, dimension: '&nbsp;€' });
+
+    $("#countries").msDropdown({visibleRows: 13}); //image can have css class; Please check source code.
+            $("#countries2").msDropdown({
+                visibleRows: 13,
+                openDirection: 'alwaysDown'}); //image can have css class; Please check source code.
+
+
+});
+</script>
+
+  </body>
+</html>

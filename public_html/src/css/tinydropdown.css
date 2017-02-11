@@ -1,0 +1,125 @@
+
+
+
+.menu li a {
+    float: left;
+    color: #233e84;
+    text-decoration: none;
+    height: 32px;
+    padding: 4px 25px 0 10px;
+    background: url(../images/arrow-region.png) 90% 40% no-repeat;
+       z-index: 0;
+}
+
+
+
+.menu a:hover {
+    color: #fff;
+    background-image: url(../images/arrow-region-w.png);
+    background-repeat: no-repeat;
+    background-position: 90% 40%;
+}
+
+
+
+.menu li {
+    position: relative;
+    float: left;
+    z-index:0;
+    margin: 0 20px 0 0;
+}
+
+
+
+
+.menu li ul {
+    display: none;
+    position: absolute;
+    top: 36px;
+    left: 0;
+    font-size: 16px;
+    font-weight: 500;
+    background: #42474a;
+    list-style: none;
+        z-index: 1000;
+
+}
+
+.menu ul li {
+    float: none;
+    width: 300px;
+    border-bottom: 1px solid #fff;
+    margin:0;
+    height: 36px;
+    line-height: 24px;
+}
+
+.menu ul li a,
+li.menuhover li a,
+li.menuhover li.menuhover li a {
+    float: none;
+    display: block;
+    background: none;
+    height: 30px;
+    padding-top: 5px;
+         font-size: 16px;
+    font-weight: 500;
+        line-height: 24px;
+}
+
+.menu ul li a:hover,
+li.menuhover li a:hover,
+li.menuhover li.menuhover li a:hover {
+    background: #51595e;
+    color: #fff;
+    
+}
+
+.menu ul li span,
+li.menuhover li span,
+li.menuhover li.menuhover li span {
+    float: none;
+    display: block;
+    background: none;
+    height: 30px;
+    padding-top: 5px;
+     line-height: 24px;
+ 
+}
+
+.menu ul ul {
+    z-index: 99;
+    position: relative;
+    left: 0;
+    top: 30px;
+    border-top: 10px solid #888d90;
+}
+
+.menu li.submenu {
+     display: none;
+    font-weight: bold
+}
+
+.menu li.noborder {
+    border-top: none
+}
+
+li.menuhover a,
+li.menuhover li.menuhover a {
+    color: #fff;
+    background: #42474a;
+     background-image: url(../images/arrow-region-w.png);
+    background-repeat: no-repeat;
+    background-position: 90% 40%;
+       z-index: 99;
+    position: relative;
+}
+
+li.menuhover span,
+li.menuhover li.menuhover span {
+    color: #fff;
+    background: #42474a;
+    position: relative;
+    z-index: 0;
+}
+

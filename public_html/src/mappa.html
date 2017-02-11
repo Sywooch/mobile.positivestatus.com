@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+  <title>Untitled</title>
+   <style>
+   body, html {
+       height: 100%
+   }
+
+      #gmap-menu {
+          position:  absolute  !important;
+          z-index: 1;
+          background-color: #FFF;
+          width: 100%;
+          height: 100%;
+      }
+       .over {
+           position: relative;
+            width: 100%;
+          height: 100%;
+       }
+       li.active {
+           background-color: #FF9933;
+       }
+
+   </style>
+
+</head>
+
+<body>
+   <div id="controlso"></div>
+
+
+
+<div class="over">
+    <div id="gmap-menu">&nbsp;&nbsp;<br><br></div>
+  </div>
+
+
+
+   <script src="http://maps.google.com/maps/api/js?sensor=false&libraries=geometry&v=3.7">
+</script>
+<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<script src="js/maplace.min.js"></script>
+ <script src="js/styles.js"></script>
+ <script src="js/points.js"></script>
+
+
+
+<script type="text/javascript">
+
+
+$(function() {
+new Maplace({
+    locations: LocsAB,
+    generate_controls: true ,
+
+    map_div: '#gmap-menu',
+    controls_type: 'list',
+    controls_div: '#controlso',
+    controls_on_map: false
+}).Load();
+});
+</script>
+
+</body>
+
+</html>
